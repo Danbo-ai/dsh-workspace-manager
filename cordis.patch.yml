@@ -1,0 +1,4 @@
+- insert:
+    - id: workspace-manager
+      name: './index.js'
+      config: {}

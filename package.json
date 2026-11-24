@@ -1,0 +1,50 @@
+{
+  "name": "dsh-workspace-manager",
+  "version": "0.7.0",
+  "type": "module",
+  "description": "多层工作区结构 + 会话标题：建目录、写骨架、注册工作区，拖拽搬会话，手动整理对话标题并可即时写回侧栏。",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "dsh": ">=0.2.2-rc.1"
+  },
+  "scripts": {
+    "check:index": "node tools/check-workspace-index.mjs",
+    "test": "node tests/stage-a.mjs && node tests/move.mjs && node tests/reconcile.mjs && node tests/titles.mjs && node tests/http.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "dsh-client-modules",
+        "dsh-client-ui-slots",
+        "dsh-client-ui-context-menu",
+        "dsh-api-remotes",
+        "dsh-client-locale"
+      ]
+    }
+  },
+  "license": "MIT",
+  "author": "Danbo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Danbo-ai/dsh-workspace-manager.git"
+  },
+  "homepage": "https://github.com/Danbo-ai/dsh-workspace-manager#readme",
+  "bugs": {
+    "url": "https://github.com/Danbo-ai/dsh-workspace-manager/issues"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness"
+  ]
+}
